@@ -24,7 +24,7 @@ The goal was simple: start from a raw Excel file and turn it into something a ma
 │   └── statecity.png
 └── README.md
 
-🎯 Objectives
+## 🎯 Objectives
 
 Clean and standardize a multi-year retail dataset.
 
@@ -46,7 +46,7 @@ Design a clean, symmetric dashboard using Excel charts.
 
 All work was done in Excel Online, which comes with a few missing features that required workarounds (explained below).
 
-🧱 Data Preparation
+## 🧱 Data Preparation
 
 Key data cleaning and preparation steps:
 
@@ -104,7 +104,7 @@ Ensured date columns sorted chronologically, confirming they were recognized as 
 
 After these steps, the dataset was consistent and ready for analysis.
 
-📊 PivotTables & Analytical Views
+## 📊 PivotTables & Analytical Views
 
 Several PivotTables were created, each on its own sheet:
 
@@ -164,11 +164,11 @@ Clear, readable headers
 
 These pivots feed the charts used on the dashboard.
 
-📈 Dashboard & Visual Design
+## 📈 Dashboard & Visual Design
 
 The Dashboard sheet brings everything together in a clean layout.
 
-KPI Cards
+### KPI Cards
 
 At the top of the dashboard:
 
@@ -182,7 +182,7 @@ Top Performing State
 
 These are displayed as “cards” with centered text and light borders for quick scanning.
 
-Charts
+### Charts
 
 The dashboard uses six charts:
 
@@ -198,7 +198,7 @@ Sales by State – Horizontal bar chart (for readability with text labels).
 
 Sales by City – Horizontal bar chart.
 
-Layout Choices
+### Layout Choices
 
 Charts arranged in a 3 × 2 grid (left and right columns, three rows).
 
@@ -208,7 +208,7 @@ Gridlines are removed on the dashboard sheet for a cleaner, report-style look.
 
 Fonts and colors are kept minimal and consistent to keep the focus on the data, not decoration.
 
-⚙️ Challenges & Workarounds
+## ⚙️ Challenges & Workarounds
 
 Working in Excel Online surfaced a few issues:
 
@@ -238,7 +238,7 @@ Fix: Refreshed and recreated PivotTables to ensure all fields were available.
 
 These workarounds mirror real-world scenarios where tools have limitations but the analysis still needs to get done.
 
-🔍 Key Insights (from the dashboard)
+## 🔍 Key Insights (from the dashboard)
 
 Office Supplies is the dominant revenue category in this dataset.
 
@@ -252,7 +252,7 @@ The time-series view shows noticeable peaks in specific months, suggesting seaso
 
 (Note: Exact values depend on the underlying dataset and filters.)
 
-🚀 How to Use This Project
+## 🚀 How to Use This Project
 
 Download the workbook
 
@@ -280,15 +280,16 @@ Add more KPIs (e.g. average discount, profit margin percentage).
 
 Extend visuals with slicers or additional charts.
 
-🛠 Tools
+## 🛠 Tools
 
 Excel Online (data cleaning, calculations, PivotTables, dashboard)
 
 CSV / Excel format for data
 
-👤 Author
+## 👤 Author
 
 Project built by Treasure (Tee) as part of a personal analytics and dashboarding portfolio.
 
 Feel free to open an issue or reach out if you have suggestions or questions.
+
 
