@@ -293,3 +293,10 @@ Project built by Treasure (Tee) as part of a personal analytics and dashboarding
 
 Feel free to open an issue or reach out if you have suggestions or questions.
 
+## 🔗 Live Excel Dashboard (View Only)
+[Click here to open the live Excel file](https://1drv.ms/x/c/636375e695c7554e/IQCaGUQXaFJkRrIJ0gYUKTD0Ad8uMGutuS6lULGvJsF5BYU?e=Hy9uOH)
+
+## 📸 Dashboard Preview
+
+![Dashboard](images/dashboardfull.jpeg)
+
