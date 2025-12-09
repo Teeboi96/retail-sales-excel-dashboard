@@ -27,23 +27,23 @@ The goal was simple: start from a raw Excel file and turn it into something a ma
 
 ## 🎯 Objectives
 
-Clean and standardize a multi-year retail dataset.
+- Clean and standardize a multi-year retail dataset.
 
-Create calculated fields such as Total Sales and numeric Profit.
+- Create calculated fields such as Total Sales and numeric Profit.
 
-Build PivotTables for different analytical views:
+- Build PivotTables for different analytical views:
 
-Time series (Year/Month)
+  - Time series (Year/Month)
 
-Product categories
+  - Product categories
 
-Profitability
+  - Profitability
 
-Customer types
+  - Customer types
 
-Regions (State & City)
+  - Regions (State & City)
 
-Design a clean, symmetric dashboard using Excel charts.
+- Design a clean, symmetric dashboard using Excel charts.
 
 All work was done in Excel Online, which comes with a few missing features that required workarounds (explained below).
 
@@ -51,57 +51,57 @@ All work was done in Excel Online, which comes with a few missing features that 
 
 Key data cleaning and preparation steps:
 
-Convert to Excel Table
+1 Convert to Excel Table
 
-Ctrl + T → "My table has headers".
+  - Ctrl + T → "My table has headers".
 
-Enables structured references and automatic expansion.
+  - Enables structured references and automatic expansion.
 
-Freeze Headers
+2 Freeze Headers
 
-View → Freeze Panes → Freeze Top Row
+  - View → Freeze Panes → Freeze Top Row
 
-Keeps column names visible while scrolling.
+  - Keeps column names visible while scrolling.
 
-Date Formatting
+3 Date Formatting
 
-Order Date and Ship Date formatted as Short Date.
+  - Order Date and Ship Date formatted as Short Date.
 
-This ensures Excel treats them as true dates instead of text.
+  - This ensures Excel treats them as true dates instead of text.
 
-Numeric Formatting
+4 Numeric Formatting
 
-Financial fields (Cost Price, Retail Price, Sub Total, Order Total, Shipping Cost, Total) formatted as Number (2 decimals).
+  - Financial fields (Cost Price, Retail Price, Sub Total, Order Total, Shipping Cost, Total) formatted as Number (2 decimals).
 
-Discount % formatted as Percentage.
+  - Discount % formatted as Percentage.
 
-Standardized Sales Metric
+5 Standardized Sales Metric
 
 Created a new column:
 
-=[@[Retail Price]] * [@[Order Quantity]]
+  '=[@[Retail Price]] * [@[Order Quantity]]'
 
 
 This Total Sales field is used across all analysis and charts.
 
-Fixing Profit Field
+6 Fixing Profit Field
 
 The original Profit Margin column actually contained profit amounts stored as text.
 
-Created Profit Numeric using:
+  - Created Profit Numeric using:
 
-=VALUE([@[Profit Margin]])
+    '=VALUE([@[Profit Margin]])'
 
 
-Formatted as Number and used this field in PivotTables.
+  - Formatted as Number and used this field in PivotTables.
 
-Sanity Checks
+7 Sanity Checks
 
-Looked for blanks in key columns (Order No, Order Date, Product Name, Product Category, Retail Price, Order Quantity, Total Sales).
+  - Looked for blanks in key columns (Order No, Order Date, Product Name, Product Category, Retail Price, Order Quantity, Total Sales).
 
-Verified that numeric columns contained valid numbers (no random text or extreme outliers).
+  - Verified that numeric columns contained valid numbers (no random text or extreme outliers).
 
-Ensured date columns sorted chronologically, confirming they were recognized as dates.
+  - Ensured date columns sorted chronologically, confirming they were recognized as dates.
 
 After these steps, the dataset was consistent and ready for analysis.
 
@@ -109,59 +109,59 @@ After these steps, the dataset was consistent and ready for analysis.
 
 Several PivotTables were created, each on its own sheet:
 
-Sales Trend (Year & Month)
+ 1 Sales Trend (Year & Month)
 
-Rows: Year, Month
+  - Rows: Year, Month
 
-Values: Total Sales
+  - Values: Total Sales
+ 
+  ⚠️ Excel Online limitation:
+  The usual Group by Month/Year option was not available for dates.
 
-⚠️ Excel Online limitation:
-The usual Group by Month/Year option was not available for dates.
+  ✅ Workaround:
+  Added helper columns in the table:
 
-✅ Workaround:
-Added helper columns in the table:
-
-Year  = YEAR([@[Order Date]])
-Month = TEXT([@[Order Date]], "MMMM")
+   'Year  = YEAR([@[Order Date]])'
+   'Month = TEXT([@[Order Date]], "MMMM")'
 
 
-Sales by Product Category
+ 2 Sales by Product Category
 
-Rows: Product Category
+  - Rows: Product Category
 
-Values: Total Sales (aggregation changed from COUNT to SUM in Value Field Settings).
+  - Values: Total Sales (aggregation changed from COUNT to SUM in Value Field Settings).
 
-Profit by Product Category
+ 3 Profit by Product Category
 
-Rows: Product Category
+  - Rows: Product Category
 
-Values: Profit Numeric (SUM).
+  - Values: Profit Numeric (SUM).
 
-Sales by Customer Type
+ 4 Sales by Customer Type
 
-Rows: Customer Type
+  - Rows: Customer Type
 
-Values: Total Sales.
+  - Values: Total Sales.
 
-Sales by State
+ 5 Sales by State
 
-Rows: State
+  - Rows: State
 
-Values: Total Sales.
+  - Values: Total Sales.
 
-Sales by City
+ 6 Sales by City
 
-Rows: City
+  - Rows: City
 
-Values: Total Sales.
+  - Values: Total Sales.
 
 Each PivotTable was formatted with:
 
-Light PivotTable style
+ - Light PivotTable style
 
-Number formatting with thousand separators
+ - Number formatting with thousand separators
 
-Clear, readable headers
+ - Clear, readable headers
 
 These pivots feed the charts used on the dashboard.
 
@@ -173,13 +173,13 @@ The Dashboard sheet brings everything together in a clean layout.
 
 At the top of the dashboard:
 
-Total Sales
+ - Total Sales
 
-Total Profit
+ - Total Profit
 
-Top Product Category
+ - Top Product Category
 
-Top Performing State
+ - Top Performing State
 
 These are displayed as “cards” with centered text and light borders for quick scanning.
 
@@ -187,111 +187,108 @@ These are displayed as “cards” with centered text and light borders for quic
 
 The dashboard uses six charts:
 
-Monthly Sales Trend – Line chart based on Year/Month.
+ 1 Monthly Sales Trend – Line chart based on Year/Month.
 
-Sales by Product Category – Column chart.
+ 2 Sales by Product Category – Column chart.
 
-Profit by Product Category – Column chart.
+ 3 Profit by Product Category – Column chart.
 
-Sales by Customer Type – Column chart.
+ 4 Sales by Customer Type – Column chart.
 
-Sales by State – Horizontal bar chart (for readability with text labels).
+ 5 Sales by State – Horizontal bar chart (for readability with text labels).
 
-Sales by City – Horizontal bar chart.
+ 6 Sales by City – Horizontal bar chart.
 
 ### Layout Choices
 
-Charts arranged in a 3 × 2 grid (left and right columns, three rows).
+ - Charts arranged in a 3 × 2 grid (left and right columns, three rows).
 
-Left column and right column have equal chart widths for symmetry.
+ - Left column and right column have equal chart widths for symmetry.
 
-Gridlines are removed on the dashboard sheet for a cleaner, report-style look.
+ - Gridlines are removed on the dashboard sheet for a cleaner, report-style look.
 
-Fonts and colors are kept minimal and consistent to keep the focus on the data, not decoration.
+ - Fonts and colors are kept minimal and consistent to keep the focus on the data, not decoration.
 
 ## ⚙️ Challenges & Workarounds
 
 Working in Excel Online surfaced a few issues:
 
-No Date Grouping in PivotTables
+ 1 No Date Grouping in PivotTables
 
-The usual right-click → Group option for dates didn’t appear.
+   - The usual right-click → Group option for dates didn’t appear.
 
-Fix: Created explicit Year and Month columns in the dataset and used them in the rows area.
+   - Fix: Created explicit Year and Month columns in the dataset and used them in the rows area.
 
-COUNT Instead of SUM
+ 2 COUNT Instead of SUM
 
-Some PivotTables defaulted to COUNT when summarizing fields.
+   - Some PivotTables defaulted to COUNT when summarizing fields.
 
-Fix: Opened Value Field Settings and changed the summary function to SUM.
+   - Fix: Opened Value Field Settings and changed the summary function to SUM.
 
-Text-Stored Numbers
+ 3 Text-Stored Numbers
 
-Profit values were stored as text, so SUM returned 0.
+   - Profit values were stored as text, so SUM returned 0.
 
-Fix: Used VALUE() to convert text to numeric and built pivots off the new column.
+   - Fix: Used VALUE() to convert text to numeric and built pivots off the new column.
 
-Pivot Field List Not Updating
+ 4 Pivot Field List Not Updating
 
-After adding new columns, PivotTables initially didn’t see them.
+   - After adding new columns, PivotTables initially didn’t see them.
 
-Fix: Refreshed and recreated PivotTables to ensure all fields were available.
+   - Fix: Refreshed and recreated PivotTables to ensure all fields were available.
 
 These workarounds mirror real-world scenarios where tools have limitations but the analysis still needs to get done.
 
 ## 🔍 Key Insights (from the dashboard)
 
-Office Supplies is the dominant revenue category in this dataset.
+- Office Supplies is the dominant revenue category in this dataset.
 
-One state (e.g. NSW) clearly leads in total sales.
+- One state (e.g. NSW) clearly leads in total sales.
 
-Corporate customers generate the highest total sales among segments.
+- Corporate customers generate the highest total sales among segments.
 
-Profit and sales are not evenly distributed across categories, which may inform pricing or promotion strategy.
+- Profit and sales are not evenly distributed across categories, which may inform pricing or promotion strategy.
 
-The time-series view shows noticeable peaks in specific months, suggesting seasonal effects.
+- The time-series view shows noticeable peaks in specific months, suggesting seasonal effects.
 
 (Note: Exact values depend on the underlying dataset and filters.)
 
 ## 🚀 How to Use This Project
 
-Download the workbook
+   1 Download the workbook
 
-Open excel/Retail_Sales_Dashboard.xlsx from this repo.
+      - Open excel/Retail_Sales_Dashboard.xlsx from this repo.
 
-Click Download.
+      - Click Download.
 
-Open in Excel (Desktop or Online)
+   2 Open in Excel (Desktop or Online)
 
-Enable editing if prompted.
+      - Enable editing if prompted.
 
-Navigate between sheets:
+      - Navigate between sheets:
 
-RetailData – main table
+         - RetailData – main table
 
-Pivot_* sheets – pivot sources
+         - Pivot_ sheets – pivot sources
 
-Dashboard – final view
+         - Dashboard – final view
 
-Modify or Extend
+   3 Modify or Extend
 
-Swap in a different but similarly structured retail dataset.
+      - Swap in a different but similarly structured retail dataset.
 
-Add more KPIs (e.g. average discount, profit margin percentage).
+      - Add more KPIs (e.g. average discount, profit margin percentage).
 
-Extend visuals with slicers or additional charts.
+      - Extend visuals with slicers or additional charts.
 
 ## 🛠 Tools
 
-Excel Online (data cleaning, calculations, PivotTables, dashboard)
+- Excel Online (data cleaning, calculations, PivotTables, dashboard)
 
-CSV / Excel format for data
+- CSV / Excel format for data
 
 ## 👤 Author
 
 Project built by Treasure (Tee) as part of a personal analytics and dashboarding portfolio.
 
 Feel free to open an issue or reach out if you have suggestions or questions.
-
-
-
