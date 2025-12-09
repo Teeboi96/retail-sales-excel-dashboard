@@ -23,6 +23,7 @@ The goal was simple: start from a raw Excel file and turn it into something a ma
 │   ├── customertype.png
 │   └── statecity.png
 └── README.md
+```
 
 ## 🎯 Objectives
 
@@ -291,5 +292,6 @@ CSV / Excel format for data
 Project built by Treasure (Tee) as part of a personal analytics and dashboarding portfolio.
 
 Feel free to open an issue or reach out if you have suggestions or questions.
+
 
 
